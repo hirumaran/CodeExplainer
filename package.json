@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "@google/generative-ai": "^0.24.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.1",
+    "@vitejs/plugin-react": "^4.4.1",
+    "vite": "^6.3.3"
+  },
+  "overrides": {
+    "nth-check": "^2.0.1",
+    "postcss": "^8.4.31",
+    "css-select": "^4.0.0",
+    "svgo": "^2.0.0"
+  }
+}
