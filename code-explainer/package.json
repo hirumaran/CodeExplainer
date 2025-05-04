@@ -2,6 +2,12 @@
   "name": "code-explainer",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
   "dependencies": {
     "@google/generative-ai": "^0.2.0",
     "@monaco-editor/react": "^4.6.0",
@@ -14,15 +20,11 @@
     "mermaid": "^11.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "^5.0.1",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
     "shell-quote": "^1.8.2",
     "svgo": "^3.3.2",
     "typescript": "^4.9.5"
-  },
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
   },
   "eslintConfig": {
     "extends": [
@@ -44,10 +46,12 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
+    "@vitejs/plugin-react": "^4.4.1",
+    "autoprefixer": "^10.4.17",
     "nth-check": "^2.1.1",
     "postcss": "^8.5.3",
     "resolve-url-loader": "^5.0.0",
-    "@vitejs/plugin-react": "^4.4.1",
-    "vite": "^5.0.0"
+    "tailwindcss": "^3.4.1",
+    "vite": "^6.3.3"
   }
 }

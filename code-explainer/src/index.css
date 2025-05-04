@@ -1,16 +1,28 @@
+/* Tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Define primary colors for light and dark themes */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Define primary colors */
+  --primary: #3b82f6; /* blue-500 */
+  --primary-hover: #2563eb; /* blue-600 */
+}
+
+.dark {
+  --primary: #60a5fa; /* blue-400 */
+  --primary-hover: #3b82f6; /* blue-500 */
 }
 
 a {
@@ -18,51 +30,96 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
 
+/* Override Tailwind's default full-width body */
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+/* Use Tailwind's typography plugin for consistent text styles */
+@layer components {
+  .prose h1 {
+    @apply text-3xl font-bold mb-4;
   }
-  a:hover {
-    color: #747bff;
+  
+  .prose h2 {
+    @apply text-2xl font-bold mb-3;
   }
-  button {
-    background-color: #f9f9f9;
+  
+  .prose h3 {
+    @apply text-xl font-bold mb-2;
+  }
+  
+  .prose p {
+    @apply mb-4;
+  }
+  
+  .prose pre {
+    @apply p-4 rounded-lg bg-gray-100 dark:bg-gray-800 overflow-x-auto;
+  }
+  
+  .prose code {
+    @apply font-mono text-sm bg-gray-100 dark:bg-gray-700 px-1 py-0.5 rounded;
+  }
+
+  /* Dark mode adjustments for prose */
+  .prose-invert {
+    --tw-prose-body: #d1d5db; /* gray-300 */
+    --tw-prose-headings: #e5e7eb; /* gray-200 */
+    --tw-prose-links: #60a5fa; /* blue-400 */
+    --tw-prose-bold: #f3f4f6; /* gray-100 */
+    --tw-prose-counters: #9ca3af; /* gray-400 */
+    --tw-prose-bullets: #6b7280; /* gray-500 */
+    --tw-prose-hr: #374151; /* gray-700 */
+    --tw-prose-code: #e5e7eb; /* gray-200 */
+    --tw-prose-pre-bg: #1f2937; /* gray-800 */
+  }
+
+  /* Explanation container for consistent typography */
+  .explanation-container {
+    @apply leading-6;
+  }
+
+  .explanation-container h1,
+  .explanation-container h2,
+  .explanation-container h3 {
+    @apply mt-6 mb-3;
+  }
+
+  .explanation-container p {
+    @apply mb-4;
+  }
+
+  .explanation-container ul,
+  .explanation-container ol {
+    @apply mb-4 pl-6;
+  }
+
+  .explanation-container li {
+    @apply mb-2;
+  }
+
+  /* Mermaid diagram styling */
+  .mermaid-diagram {
+    @apply flex justify-center p-4 rounded-lg;
+  }
+
+  .mermaid-diagram svg {
+    @apply max-w-full h-auto;
+  }
+
+  /* Loading animation for the explanation panel */
+  .explanation-panel {
+    @apply transition-opacity duration-300 ease-in-out;
+  }
+
+  .explanation-panel.loading {
+    @apply opacity-70;
   }
 }
